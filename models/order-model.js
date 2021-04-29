@@ -15,20 +15,21 @@ const OrderSchema = mongoose.Schema(
         totalPrice: {
             type: Number,
             required: [true, "Missing total price."],
-            min: [0, "total Price can't be negative."],
+            min: [1, "total Price can't be negative."],
             max: [100000, "total Price can't exceed 100000."]
         },
         cityToDeliver: {
             type: String,
             required: [true, "Missing city to deliver."],
             minLength: [2, "City to deliver minimum length is 2."],
-            maxLength: [50, "City to deliver maximum length is 50."],
+            maxLength: [30, "City to deliver maximum length is 30."],
         },
         addressToDeliver: {
             type: String,
             required: [true, "Missing address to deliver."],
             minLength: [2, "address to deliver minimum length is 2."],
-            maxLength: [50, "address to deliver maximum length is 50."],
+            maxLength: [25, "address to deliver maximum length is 25."],
+            match: [/^(([a-zA-Z\u0590-\u05fe]{2,}\s?)+([a-zA-Z0-9\u0590-\u05fe]+\s?)?)+$/, "You can't start with space or you used double spaces"]
         },
         dateToDeliver: {
             type: Date,
@@ -41,7 +42,8 @@ const OrderSchema = mongoose.Schema(
         lastFourDigit: {
             type: String,
             required: [true, "Missing last Four Digit."],
-            minLength: [4, "last Four Digit minimum/maximum length is 4."],
+            minLength: [4, "Last Four Digit maximum length is 4."],
+            maxLength: [4, "Last Four Digit maximum length is 4."]
         },
 
     },

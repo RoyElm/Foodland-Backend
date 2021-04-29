@@ -7,10 +7,7 @@ const ProductSchema = mongoose.Schema(
             required: [true, "Missing product name."],
             minLength: [2, "Product name must be minimum 2 chars."],
             maxLength: [25, "Product name can't exceed 25 chars."],
-            validate: {
-                validator: value => value.indexOf("  ") === -1,
-                message: "Name can't contain multiple spaces."
-            }
+            match:[/^([a-zA-Z0-9\u0590-\u05fe]+[_@./#&+-]?\s?)+$/,"Example for pattern Ice Milk Or Ice-Milk"]
         },
         price: {
             type: Number,

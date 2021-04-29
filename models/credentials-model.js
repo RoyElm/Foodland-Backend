@@ -5,12 +5,13 @@ const CredentialSchema = mongoose.Schema(
         email: {
             type: String,
             required: [true, "Missing email."],
-            pattern: [true, /^([\w]+@([\w-]+\.)+[\w-]{2,4})?$/]
+            match: [/^([\w]+@([\w-]+\.)+[\w-]{2,4})?$/,"Email isn't in the right syntax"]
         },
         password: {
             type: String,
             select: false,
-            required: [true, "Missing password."]
+            minLength:[6,"Minimum password length is 6"],
+            match:[/^\S*$/,"You can't use spaces in password"]
         }
     },
     {

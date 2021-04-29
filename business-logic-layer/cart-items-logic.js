@@ -7,8 +7,14 @@ function getAllCartItemByCartIdAsync(shoppingCartId) {
 }
 
 //add new cart item 
-function addNewCartItemAsync(cartItem) {
+async function addNewCartItemAsync(cartItem) {
+    const checkIfCartItemExist = await getCartItemByProductIdAsync(cartItem);
+    if (checkIfCartItemExist) return 400;
     return cartItem.save();
+}
+
+function getCartItemByProductIdAsync({ productId, shoppingCartId }) {
+    return CartItemModel.findOne({ $and: [{ productId }, { shoppingCartId }] }).exec();
 }
 
 //delete cart item 

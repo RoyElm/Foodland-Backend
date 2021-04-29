@@ -25,10 +25,10 @@ router.post("/", verifyLoggedIn, async (request, response) => {
         const error = cartItem.validateSync();
         if (error) return response.status(400).send(error.message);
         const addedCartItem = await cartItemLogic.addNewCartItemAsync(cartItem);
+        if (addedCartItem === 400) return response.status(400).send("Please slow down with the requests");
         response.status(201).json(addedCartItem);
-    } catch (error) {
+    } catch (err) {
         response.status(500).send(errorsHelper.getError(err));
-
     }
 })
 

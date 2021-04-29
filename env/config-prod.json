@@ -1,5 +1,5 @@
 {
     "mongodb": {
-        "connectionString": "mongodb+srv://roye456:1357913579@cluster0.ck1dn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+        "connectionString": "mongodb://roye456:1357913579@cluster0-shard-00-00.ck1dn.mongodb.net:27017,cluster0-shard-00-01.ck1dn.mongodb.net:27017,cluster0-shard-00-02.ck1dn.mongodb.net:27017/myFirstDatabase?ssl=true&replicaSet=atlas-wsrbdt-shard-0&authSource=admin&retryWrites=true&w=majority"
     }
 }

@@ -1,5 +1,5 @@
 {
     "mongodb": {
-        "connectionString": "mongodb+srv://roye456:1357913579@foodland.oc2a6.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+        "connectionString": "mongodb+srv://roye456:1357913579@cluster0.ck1dn.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
     }
 }

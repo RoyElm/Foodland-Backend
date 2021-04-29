@@ -1,0 +1,22 @@
+{
+    "name": "foodland-backend",
+    "version": "1.0.0",
+    "description": "",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app"
+    },
+    "author": "Roy Elmakies",
+    "license": "ISC",
+    "dependencies": {
+        "cookie-parser": "^1.4.5",
+        "cors": "^2.8.5",
+        "express": "^4.17.1",
+        "express-fileupload": "^1.2.1",
+        "jsonwebtoken": "^8.5.1",
+        "mongoose": "^5.12.2",
+        "pdfkit": "^0.12.1",
+        "socket.io": "^4.0.1",
+        "uuid": "^8.3.2"
+    }
+}

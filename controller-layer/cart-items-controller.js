@@ -6,17 +6,6 @@ const errorsHelper = require("../helpers/errors-helper");
 
 const router = express.Router();
 
-//get shopping cart items by specify shopping cart id; - have to be login
-router.get("/:shoppingCartId", verifyLoggedIn, async (request, response) => {
-    try {
-        const shoppingCartId = request.params.shoppingCartId;
-        const cartItems = await cartItemLogic.getAllCartItemByCartIdAsync(shoppingCartId);
-        response.json(cartItems);
-    }
-    catch (err) {
-        response.status(500).send(errorsHelper.getError(err));
-    }
-});
 
 //adding new cart item; - have to be login
 router.post("/", verifyLoggedIn, async (request, response) => {

@@ -1,9 +1,15 @@
 require("../data-access-layer/dal");
 const shoppingModel = require("../models/shopping-cart-model");
 
-//get shopping cart by user id
+//get shopping cart by user id with cart-items (cart-items populating with the product).
 function getCartByUserIdAsync(userId) {
-    return shoppingModel.findOne({ userId }, null, { sort: { cartCreationDate: -1 } }).exec();
+    return shoppingModel.findOne({ userId }, null, { sort: { cartCreationDate: -1 } })
+        .populate({
+            path: "cartItems",
+            populate: {
+                path: "product"
+            }
+        }).exec();
 }
 
 //add new shopping cart

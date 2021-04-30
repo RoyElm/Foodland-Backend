@@ -23,6 +23,12 @@ const ShoppingCartSchema = mongoose.Schema(
     }
 );
 
+ShoppingCartSchema.virtual("cartItems", {
+    ref: "CartItemModel",
+    localField: "_id",
+    foreignField: "shoppingCartId"
+});
+
 const ShoppingCartModel = mongoose.model("ShoppingCartModel", ShoppingCartSchema, "ShoppingCarts");
 
 module.exports = ShoppingCartModel;

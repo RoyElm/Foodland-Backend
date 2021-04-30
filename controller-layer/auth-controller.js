@@ -21,7 +21,7 @@ router.post("/register", async (request, response) => {
     }
 });
 
-//check if idcard exist in DB
+//check if idCard exist in DB
 router.post("/confirm/idCard", async (request, response) => {
     try {
         const { idCard } = request.body;

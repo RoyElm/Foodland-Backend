@@ -10,13 +10,13 @@ const CartItemSchema = mongoose.Schema(
         quantity: {
             type: Number,
             required: [true, "Missing Quantity."],
-            min: [1, "Quantity can't be negative."],
+            min: [1, "Quantity can't be below 1."],
             max: [1000, "Quantity can't exceed 1000."]
         },
         totalPrice: {
             type: Number,
             required: [true, "Missing total price."],
-            min: [1, "total Price can't be negative."],
+            min: [0.4, "total Price can't be below 0.4."],
             max: [100000, "total Price can't exceed 100000."]
         },
         shoppingCartId: {

@@ -1,11 +1,6 @@
 require("../data-access-layer/dal");
 const CartItemModel = require("../models/cart-item-model");
 
-//get all cart items by cart id
-function getAllCartItemByCartIdAsync(shoppingCartId) {
-    return CartItemModel.find({ shoppingCartId }).populate("product").exec();
-}
-
 //add new cart item 
 async function addNewCartItemAsync(cartItem) {
     const checkIfCartItemExist = await getCartItemByProductIdAsync(cartItem);
@@ -35,7 +30,6 @@ async function updateCartItemAsync(cartItem) {
 
 module.exports = {
     addNewCartItemAsync,
-    getAllCartItemByCartIdAsync,
     deleteCartItemAsync,
     updateCartItemAsync,
     deleteAllCartItemsAsync

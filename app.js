@@ -32,7 +32,7 @@ server.use("/api/shopping-cart", shoppingController);
 server.use("/api/cart-items", cartItemsController);
 
 server.use("*", (request, response) => {
-    response.status(404).send("Route not found");
+    response.sendFile(path.join(__dirname, "./frontend/index.html"))
 });
 
 const port = process.env.PORT || 3001;

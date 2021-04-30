@@ -31,9 +31,9 @@ server.use("/api/order", orderController);
 server.use("/api/shopping-cart", shoppingController);
 server.use("/api/cart-items", cartItemsController);
 
-server.use("*", (request, response) => {
-    response.status(404).send("Route not found");
-});
+// server.use("*", (request, response) => {
+//     response.status(404).send("Route not found");
+// });
 
 const port = process.env.PORT || 3001;
 const expressListener = server.listen(port, () => console.log("Listening...."));

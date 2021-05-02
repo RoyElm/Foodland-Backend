@@ -48,7 +48,6 @@ router.get('/receipt/:_id', verifyLoggedIn, async function (request, response) {
     try {
         const _id = request.params._id;
         const order = await orderLogic.getReceiptByOrderIdAsync(_id);
-
         //creating Document PDF
         const doc = await createInvoice(order, `${order._id}.pdf`);
 
@@ -66,11 +65,9 @@ router.get('/receipt/:_id', verifyLoggedIn, async function (request, response) {
         });
 
         doc.end();
-
     } catch (error) {
         response.status(500).send(errorsHelper.getError(error));
     }
-
 });
 
 module.exports = router;

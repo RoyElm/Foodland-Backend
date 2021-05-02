@@ -16,7 +16,6 @@ function verifyLoggedIn(request, response, next) {
 
     // Verify the token: 
     jwt.verify(token, "ShopOnline", (err, payload) => { // payload.user
-
         if (err && err.message === "jwt expired") {
             return response.status(403).send("Your login session has expired. Please login again.");
         }

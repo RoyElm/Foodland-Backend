@@ -10,14 +10,17 @@ function init(expressListener) {
     });
 }
 
+//sending to front event with addedProduct inside the body;
 function productAdded(addedProduct) {
     socketServer.sockets.emit("msg-from-server-product-added", addedProduct);
 }
 
+//sending to front event with updatedProduct inside the body;
 function productUpdated(updatedProduct) {
     socketServer.sockets.emit("msg-from-server-product-updated", updatedProduct);
 }
 
+//sending to front event with updatedCartItem inside the body;
 function cartItemUpdated(updatedCartItem) {
     socketServer.sockets.emit("msg-from-server-cart-item-updated", updatedCartItem);
 }

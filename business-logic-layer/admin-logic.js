@@ -34,6 +34,7 @@ async function updateProductAsync(product, newImage) {
     return null;
 }
 
+//updating cart items when Admin Updating product
 async function getAllCartItemsByProductId(productId) {
     const cartItems = await CartItemModel.find({ productId }).populate("product").exec();
     cartItems.forEach(async cartItem => {

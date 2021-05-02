@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 
+//handling connect to MongoDB Database
 function connectAsync() {
     return new Promise((resolve, reject) => {
         const options = { useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true };

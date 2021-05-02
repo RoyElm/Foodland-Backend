@@ -18,11 +18,14 @@ const server = express();
 // Enable sending an receiving cookies from the front:
 server.use(cookieParser());
 
+//Enabling cors to access from all ip address, allowing json as response and allowing file uploading.
 server.use(cors())
 server.use(express.json());
 server.use(fileUpload());
+
 server.use(express.static(path.join(__dirname, "./frontend")));
 
+//ExpressJS Routes to controllers.
 server.use("/api/auth", authController);
 server.use("/api/admin", adminController);
 server.use("/api/products", productsController);
@@ -35,6 +38,9 @@ server.use("*", (request, response) => {
     response.sendFile(path.join(__dirname, "./frontend/index.html"))
 });
 
+//listening to environment Port on production or 3001 on developing;
 const port = process.env.PORT || 3001;
 const expressListener = server.listen(port, () => console.log("Listening...."));
+
+//connecting to socket.
 socketHelper.init(expressListener);

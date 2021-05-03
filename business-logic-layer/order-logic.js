@@ -11,6 +11,10 @@ function getAllOrdersAsync() {
     return orderModel.find().exec();
 }
 
+function getLastOrderByUserIdAsync(userId) {
+    return orderModel.findOne({ userId }, null, { sort: { orderDate: -1 } }).exec();
+}
+
 //add new order
 function saveOrderAsync(order) {
     return order.save();
@@ -28,6 +32,7 @@ function getReceiptByOrderIdAsync(_id) {
 
 module.exports = {
     getTotalOrdersAsync,
+    getLastOrderByUserIdAsync,
     saveOrderAsync,
     getReceiptByOrderIdAsync,
     getAllOrdersAsync

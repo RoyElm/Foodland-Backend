@@ -1,6 +1,6 @@
 const express = require("express");
 const verifyLoggedIn = require("../middleware/verify-logged-in");
-const shoppingLogic = require("../business-logic-layer/shopping-logic");
+const shoppingLogic = require("../business-logic-layer/shopping-cart-logic");
 const shoppingCartModel = require("../models/shopping-cart-model");
 const errorsHelper = require("../helpers/errors-helper");
 

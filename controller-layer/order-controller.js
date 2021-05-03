@@ -18,6 +18,17 @@ router.get("/", verifyLoggedIn, async (request, response) => {
     }
 });
 
+router.get("/lastOrder/:userId", verifyLoggedIn, async (request, response) => {
+    try {
+        const userId = request.params.userId;
+        const lastOrder = await orderLogic.getLastOrderByUserIdAsync(userId);
+        response.json(lastOrder);
+    }
+    catch (err) {
+        response.status(500).send(errorsHelper.getError(err));
+    }
+});
+
 //get count of orders; 
 router.get("/totalOrders", async (request, response) => {
     try {

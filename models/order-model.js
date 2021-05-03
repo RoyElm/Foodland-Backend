@@ -15,8 +15,8 @@ const OrderSchema = mongoose.Schema(
         totalPrice: {
             type: Number,
             required: [true, "Missing total price."],
-            min: [1, "total Price can't be negative."],
-            max: [100000, "total Price can't exceed 100000."]
+            min: [0.4, "total Price can't be below 0.4$."],
+            max: [100000, "total Price can't exceed 100000$."]
         },
         cityToDeliver: {
             type: String,

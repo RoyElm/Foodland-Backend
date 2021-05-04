@@ -2,6 +2,7 @@ const io = require("socket.io");
 
 let socketServer;
 
+//handling socket connection
 function init(expressListener) {
     socketServer = io(expressListener, { cors: { origin: "*" } });
     socketServer.sockets.on("connection", socket => {

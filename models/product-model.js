@@ -24,7 +24,6 @@ const ProductSchema = mongoose.Schema(
     },
     {
         versionKey: false,
-        toJSON: { virtuals: true },
         id: false
     }
 );
